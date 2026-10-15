@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>百分比寬度示範</title>
+  <style>
+    * { 
+      box-sizing: border-box; 
+    }
+
+    body {
+      font-family: Arial, "Microsoft JhengHei", sans-serif;
+      margin: 32px;
+      color: #17324d;
+    }
+
+    /* 父元素：寬度為頁面 (body) 的 80% */
+    .parent {
+      width: 80%;
+      padding: 20px;
+      background: #dceef5;
+      border: 3px solid #286c86;
+    }
+
+    /* 子元素：寬度為父元素 (.parent) 內容區的 50% */
+    .child {
+      width: 50%;
+      padding: 15px;
+      margin-top: 10px;
+      background: #bce0ee;
+      border: 2px solid #20566b;
+    }
+
+    /* 孫元素：寬度為子元素 (.child) 內容區的 50% */
+    .grandchild {
+      width: 50%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #9bd2e7;
+      border: 2px dashed #17324d;
+    }
+  </style>
+</head>
+<body>
+  <h1>百分比寬度看父元素</h1>
+  <p>每一層的 50%，都以自己的父元素內容寬度為基準。</p>
+
+  <div class="parent">
+    父元素：頁面的 80%
+    <div class="child">
+      子元素：父元素的 50%
+      <div class="grandchild">
+        孫元素：子元素的 50%
+      </div>
+    </div>
+  </div>
+</body>
+</html>
