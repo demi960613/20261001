@@ -1,129 +1,135 @@
-/* 全域設定 */
-* {
-  box-sizing: border-box;
-}
-
+/* ==========================================
+   STEP 1: Mobile-First 手機版預設樣式[cite: 1]
+   ========================================== */
 body {
+  font-family: sans-serif;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f7f5f0; /* 溫潤的燕麥白背景 */
-  color: #2c3e50;
+  background-color: #f7f5ee;
+  color: #102a43;
 }
 
-/* STEP 1：Header 樣式（沈穩墨綠色） */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  padding: 16px 8%;
+  padding: 18px 7%;
   text-align: center;
-  background: #2f3e46; /* 墨綠灰色 */
-  color: #f7f5f0;
+  background-color: #1f364d;
 }
 
-.site-header h1 {
-  margin: 0 0 8px;
-  letter-spacing: 1px;
+.site-header .logo {
+  color: #ffffff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.site-header a {
-  margin: 0 12px;
-  color: #bac7a7; /* 柔和的淺綠色導覽連結 */
+.site-nav a {
+  color: #ffffff;
+  margin: 0 8px;
   text-decoration: none;
 }
 
-.site-header a:hover {
-  color: #ffffff;
-}
-
-/* STEP 2：Hero 樣式（質感灰綠色主視覺） */
 .hero {
-  min-height: 300px;
-  padding: 64px 8%;
-  background: #354f52; /* 沉穩的森林灰綠色 */
-  color: #f7f5f0;
+  background-color: #1f5d78;
+  color: #ffffff;
+  padding: 48px 7%;
 }
 
-.hero p:first-child {
-  color: #84a98c; /* 小標題使用柔和草綠色 */
-  letter-spacing: 2px;
-  font-weight: bold;
+.event-list {
+  width: 88%;
+  margin: 32px auto;
 }
 
-.hero h2 {
-  margin: 10px 0 16px;
-  font-size: 46px;
-  color: #ffffff; /* 主標題維持乾淨的白色 */
-}
-
-.hero p {
-  max-width: 620px;
-  line-height: 1.8;
-  color: #cad2c5; /* 內文用柔和淺灰綠，減少視覺疲勞 */
-}
-
-/* STEP 3 & 4：Event Card 樣式 */
+/* STEP 3: 卡片樣式與 Transition 過渡動畫[cite: 1] */
 .event-card {
-  width: 84%;
-  max-width: 760px;
-  margin: 44px auto;
-  padding: 30px;
-  border: 2px solid #84a98c; /* 邊框保持草綠色 */
+  margin-bottom: 18px;
+  padding: 24px;
+  border: 2px solid #1f5d78;
   border-radius: 16px;
   background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform .25s, box-shadow .25s; /*[cite: 1] */
 }
 
-.event-card h2 {
-  margin-top: 0;
-  color: #2f3e46;
+.event-card:hover {
+  transform: translateY(-8px); /*[cite: 1] */
+  box-shadow: 0 14px 28px rgba(16, 42, 67, .18); /*[cite: 1] */
 }
 
-.with-badge {
-  position: relative;
+/* ==========================================
+   STEP 4: Keyframes 進場動畫[cite: 1]
+   ========================================== */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* 「剩 8 位」標籤（已改為紅色底色） */
-.badge {
-  position: absolute;
-  top: -16px;
-  right: 24px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: #e63946; /* 改為醒目的紅色 */
+.hero-content {
+  animation: fade-up .8s ease-out both; /*[cite: 1] */
+}
+
+/* ==========================================
+   STEP 5 (挑戰題): .promo-banner 樣式與動畫[cite: 1]
+   ========================================== */
+.promo-banner {
+  width: 88%;
+  margin: 32px auto;
+  padding: 24px;
+  background-color: #e6f0f5;
+  border-radius: 16px;
+  text-align: center; /* 手機版內容置中[cite: 1] */
+  animation: fade-up .8s ease-out both; /* 套用 fade-up 0.8s[cite: 1] */
+}
+
+.btn-promo {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color: #e06d53;
   color: white;
-  font-weight: bold;
-  font-size: 14px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform .2s, background-color .2s;
 }
 
-/* 挑戰題：Notice Card 樣式（藍色框線、白底） */
-.notice-card {
-  position: relative;
-  width: 84%;
-  max-width: 760px;
-  margin: 24px auto 44px auto;
-  padding: 28px;
-  border-radius: 14px;
-  border-left: 8px solid #2b5c8f; /* 左側粗邊框為藍色 */
-  background: #ffffff;             /* 背景為白色 */
-  color: #2f3e46;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+.btn-promo:hover {
+  background-color: #c85a42; /* hover 改變背景色[cite: 1] */
+  transform: scale(1.05);     /* hover 時放大 1.05倍[cite: 1] */
 }
 
-.notice-card h2 {
-  margin-top: 0;
-  color: #2f3e46;
-}
+/* ==========================================
+   STEP 2: Media Query 寬螢幕 (768px+)[cite: 1]
+   ========================================== */
+@media (min-width: 768px) {
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
 
-/* 提醒標籤（藍色背景） */
-.notice-badge {
-  position: absolute;
-  top: -14px;
-  right: 24px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: #2b5c8f; /* 標籤背景為藍色 */
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
+  .event-list {
+    display: flex;
+    gap: 20px;
+  }
+
+  .event-card {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  /* 挑戰題：桌機 768px 後改用 Flexbox 左右排列[cite: 1] */
+  .promo-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .btn-promo {
+    margin-top: 0;
+  }
 }
